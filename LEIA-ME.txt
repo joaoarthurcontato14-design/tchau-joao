@@ -1,0 +1,31 @@
+CARTA UM ANO — JOÃO
+
+Cor de fundo extraída da imagem enviada: #27364d
+
+COMO PUBLICAR GRATUITAMENTE NO GITHUB PAGES
+
+1. Entre em https://github.com e faça login.
+2. Clique no + (canto superior direito) e escolha New repository.
+3. Dê um nome ao repositório, por exemplo: carta-um-ano-joao
+4. Marque Public (necessário para usar o GitHub Pages gratuitamente no plano gratuito).
+5. Clique em Create repository.
+6. Dentro do repositório, clique em Add file > Upload files.
+7. Extraia este ZIP no seu computador e envie o arquivo index.html (não envie o ZIP).
+8. Clique em Commit changes.
+9. Abra Settings > Pages.
+10. Em Build and deployment, selecione Deploy from a branch.
+11. Em Branch, selecione main e / (root), depois Save.
+12. Aguarde alguns minutos. O endereço aparecerá na própria página Settings > Pages.
+
+COMO ALTERAR A SENHA
+Abra index.html e procure:
+const CORRECT_PASSWORD = "25102008";
+Troque o conteúdo entre aspas pela nova senha.
+
+COMO ALTERAR A COR
+No início do CSS, procure --blue: #27364d; e substitua pelo código hexadecimal desejado.
+
+IMPORTANTE SOBRE A SENHA
+Como o site é estático e hospedado no GitHub Pages, a senha fica no código JavaScript e pode ser descoberta por alguém que inspecione os arquivos do site. Ela funciona como uma barreira casual, não como proteção de segurança para conteúdo realmente privado.
+
+O site não usa serviços externos, banco de dados, rastreamento ou bibliotecas. Todo o conteúdo está no index.html.
