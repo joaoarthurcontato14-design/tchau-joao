@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#27364d">
+  <title>Carta Um Ano — João</title>
+  <style>
+    :root {
+      --blue: #27364d;
+      --ink: #f3f5f8;
+      --muted: rgba(243, 245, 248, .72);
+      --line: rgba(243, 245, 248, .58);
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      min-height: 100%;
+      background: var(--blue);
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      background: var(--blue);
+      color: var(--ink);
+      font-family: "Courier New", Courier, monospace;
+    }
+
+    button, input { font: inherit; }
+
+    .gate {
+      min-height: 100svh;
+      display: grid;
+      place-items: center;
+      padding: 28px;
+    }
+
+    .lock-button {
+      display: grid;
+      place-items: center;
+      width: 104px;
+      height: 120px;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      color: var(--ink);
+      cursor: pointer;
+      animation: sway 3.8s ease-in-out infinite;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .lock-button svg {
+      width: 76px;
+      height: 88px;
+      overflow: visible;
+    }
+
+    .lock-button:focus-visible {
+      outline: 1px solid var(--line);
+      outline-offset: 12px;
+      border-radius: 8px;
+    }
+
+    @keyframes sway {
+      0%, 100% { transform: rotate(-5deg) translateY(0); }
+      50% { transform: rotate(5deg) translateY(-5px); }
+    }
+
+    .password-panel {
+      width: min(330px, 100%);
+      display: none;
+      text-align: center;
+    }
+
+    .password-panel.visible { display: block; }
+
+    .password-panel input {
+      width: 100%;
+      padding: 14px 12px;
+      border: 1px solid var(--line);
+      border-radius: 0;
+      outline: none;
+      color: var(--ink);
+      background: transparent;
+      text-align: center;
+      letter-spacing: .12em;
+      caret-color: var(--ink);
+    }
+
+    .password-panel input::placeholder {
+      color: var(--muted);
+      opacity: 1;
+      letter-spacing: .04em;
+    }
+
+    .password-panel input:focus { border-color: var(--ink); }
+
+    .password-panel button {
+      margin-top: 14px;
+      padding: 9px 18px;
+      border: 1px solid var(--line);
+      background: transparent;
+      color: var(--ink);
+      cursor: pointer;
+    }
+
+    .password-panel button:hover {
+      color: var(--blue);
+      background: var(--ink);
+    }
+
+    .error {
+      min-height: 1.3em;
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .letter {
+      display: none;
+      width: min(760px, 100%);
+      margin: 0 auto;
+      padding: clamp(34px, 7vw, 78px) clamp(22px, 7vw, 48px) 70px;
+      line-height: 1.8;
+      font-size: clamp(14px, 1.8vw, 16px);
+      white-space: normal;
+      overflow-wrap: break-word;
+    }
+
+    .letter.visible { display: block; }
+
+    .letter p {
+      margin: 0 0 1.45em;
+      text-indent: 1.5em;
+    }
+
+    .letter .signature {
+      margin-top: 2.8em;
+      text-indent: 0;
+    }
+
+    .letter .kiss {
+      margin-top: -1em;
+      text-indent: 0;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .lock-button { animation: none; }
+      html { scroll-behavior: auto; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="gate" id="gate" aria-label="Acesso à carta">
+      <button class="lock-button" id="lockButton" type="button"
+              aria-label="Abrir acesso à carta" title="Abrir">
+        <svg viewBox="0 0 80 92" fill="none" aria-hidden="true">
+          <path d="M21 39V27C21 15.954 29.954 7 41 7C52.046 7 61 15.954 61 27V39"
+                stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
+          <rect x="10" y="36" width="62" height="49" rx="7"
+                stroke="currentColor" stroke-width="4"/>
+          <circle cx="41" cy="57" r="4" fill="currentColor"/>
+          <path d="M41 61V70" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+        </svg>
+      </button>
+
+      <form class="password-panel" id="passwordPanel">
+        <input id="password" type="password" placeholder="teu dia"
+               aria-label="teu dia" autocomplete="off" inputmode="numeric"
+               required>
+        <button type="submit">entrar</button>
+        <p class="error" id="error" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <article class="letter" id="letter">
+      <p>Criei contigo uma linguagem sem que sequer sabes. Escrevo cartas, músicas, histórias que poderiam acontecer…</p>
+
+      <p>Não sei como me sinto sobre você, sobre mim, sobre nós e sobre qualquer outra coisa que nos relacione. Não sei mais se o que temos pode ser considerado um relacionamento.</p>
+
+      <p>Te contei sobre bloqueio de sentimentos, sobre uma rotina corrida e sobre como não estamos conseguindo interpretar um ao outro. E isso nos impede de progredir de qualquer forma.</p>
+
+      <p>Sei que não leu o que tinha no meu último site, mas espero que consigas ler isto.</p>
+
+      <p>A distância, a rotina, tudo que foi colocado para dificultar uma suposta relação nossa realmente está dificultando tudo isso.</p>
+
+      <p>Nos desencontramos novamente e dessa vez sei que não nos reencontraremos. Pelo menos não por agora. Hoje e durante um tempo sei que não conseguiria seguir contigo.</p>
+
+      <p>Não quero jamais pedir um tempo para ti, pois acho que isso não funciona num relacionamento. Acredito que isso só nos deixa em cima de um muro que nós mesmos construímos. Então decido com um aperto além de no coração, na mente: tchau.</p>
+
+      <p>Escrevi “adeus” para ti há três meses atrás, e voltamos, logo não tenho controle sobre ti, sobre mim, sobre nós. Então peço que tenhas um pingo de compaixão por mim e só me deixe.</p>
+
+      <p>Gosto muito de ti, amo o que construímos, mas não nos vejo mais construindo coisas incríveis como já fomos.</p>
+
+      <p>Às vezes me estresso com coisas bestas sobre ti, me estresso pela forma que te trato, mesmo as coisas sendo bestas e minhas atitudes não sendo terríveis.</p>
+
+      <p>Não estou pronto para um relacionamento, não sei se quero estar pronto para um relacionamento e creio que hoje tenho que ser sincero contigo.</p>
+
+      <p>Eu te amo.</p>
+
+      <p>Me desculpa por isso tudo que causei e por talvez ter te impedido de estar vivendo feliz com alguém.</p>
+
+      <p>João, infelizmente terei que escrever novamente minhas músicas tristes que te citam. Infelizmente terei que abraçar meu travesseiro para abraçar sem saber em quem pensar. Infelizmente verei algo sobre a Luisa Sonza e lembrarei de ti. Espero que lembres de mim da melhor forma, pois estarei sempre lembrando de nós na melhor época.</p>
+
+      <p>Talvez amanhã eu me arrependa, mas eu sei que estou pensando sobre este texto há cerca de uma semana e ainda bem que decidi escrever e te enviar.</p>
+
+      <p>Tchau.</p>
+
+      <p class="signature">-Com amor e carinho, João, não você, eu.</p>
+      <p class="kiss">Beijão.</p>
+    </article>
+  </main>
+
+  <script>
+    const CORRECT_PASSWORD = "25102008";
+
+    const lockButton = document.getElementById("lockButton");
+    const passwordPanel = document.getElementById("passwordPanel");
+    const passwordInput = document.getElementById("password");
+    const error = document.getElementById("error");
+    const gate = document.getElementById("gate");
+    const letter = document.getElementById("letter");
+
+    lockButton.addEventListener("click", () => {
+      lockButton.style.display = "none";
+      passwordPanel.classList.add("visible");
+      passwordInput.focus();
+    });
+
+    passwordPanel.addEventListener("submit", (event) => {
+      event.preventDefault();
+
+      if (passwordInput.value === CORRECT_PASSWORD) {
+        gate.style.display = "none";
+        letter.classList.add("visible");
+        window.scrollTo(0, 0);
+      } else {
+        error.textContent = " ";
+        passwordInput.value = "";
+        passwordInput.focus();
+        passwordInput.setAttribute("aria-invalid", "true");
+      }
+    });
+
+    passwordInput.addEventListener("input", () => {
+      error.textContent = "";
+      passwordInput.removeAttribute("aria-invalid");
+    });
+  </script>
+</body>
+</html>
