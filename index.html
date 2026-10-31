@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#27364d">
+  <title>Carta Um Ano — João</title>
+  <style>
+    :root {
+      --blue: #27364d;
+      --ink: #f3f5f8;
+      --muted: rgba(243, 245, 248, .72);
+      --line: rgba(243, 245, 248, .58);
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      min-height: 100%;
+      background: var(--blue);
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      background: var(--blue);
+      color: var(--ink);
+      font-family: "Courier New", Courier, monospace;
+    }
+
+    button, input { font: inherit; }
+
+    .gate {
+      min-height: 100svh;
+      display: grid;
+      place-items: center;
+      padding: 28px;
+    }
+
+    .lock-button {
+      display: grid;
+      place-items: center;
+      width: 104px;
+      height: 120px;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      color: var(--ink);
+      cursor: pointer;
+      animation: sway 3.8s ease-in-out infinite;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .lock-button svg {
+      width: 76px;
+      height: 88px;
+      overflow: visible;
+    }
+
+    .lock-button:focus-visible {
+      outline: 1px solid var(--line);
+      outline-offset: 12px;
+      border-radius: 8px;
+    }
+
+    @keyframes sway {
+      0%, 100% { transform: rotate(-5deg) translateY(0); }
+      50% { transform: rotate(5deg) translateY(-5px); }
+    }
+
+    .password-panel {
+      width: min(330px, 100%);
+      display: none;
+      text-align: center;
+    }
+
+    .password-panel.visible { display: block; }
+
+    .password-panel input {
+      width: 100%;
+      padding: 14px 12px;
+      border: 1px solid var(--line);
+      border-radius: 0;
+      outline: none;
+      color: var(--ink);
+      background: transparent;
+      text-align: center;
+      letter-spacing: .12em;
+      caret-color: var(--ink);
+    }
+
+    .password-panel input::placeholder {
+      color: var(--muted);
+      opacity: 1;
+      letter-spacing: .04em;
+    }
+
+    .password-panel input:focus { border-color: var(--ink); }
+
+    .password-panel button {
+      margin-top: 14px;
+      padding: 9px 18px;
+      border: 1px solid var(--line);
+      background: transparent;
+      color: var(--ink);
+      cursor: pointer;
+    }
+
+    .password-panel button:hover {
+      color: var(--blue);
+      background: var(--ink);
+    }
+
+    .error {
+      min-height: 1.3em;
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .letter {
+      display: none;
+      width: min(760px, 100%);
+      margin: 0 auto;
+      padding: clamp(34px, 7vw, 78px) clamp(22px, 7vw, 48px) 70px;
+      line-height: 1.8;
+      font-size: clamp(14px, 1.8vw, 16px);
+      white-space: normal;
+      overflow-wrap: break-word;
+    }
+
+    .letter.visible { display: block; }
+
+    .letter p {
+      margin: 0 0 1.45em;
+      text-indent: 1.5em;
+    }
+
+    .letter .signature {
+      margin-top: 2.8em;
+      text-indent: 0;
+    }
+
+    .letter .kiss {
+      margin-top: -1em;
+      text-indent: 0;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .lock-button { animation: none; }
+      html { scroll-behavior: auto; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="gate" id="gate" aria-label="Acesso à carta">
+      <button class="lock-button" id="lockButton" type="button"
+              aria-label="Abrir acesso à carta" title="Abrir">
+        <svg viewBox="0 0 80 92" fill="none" aria-hidden="true">
+          <path d="M21 39V27C21 15.954 29.954 7 41 7C52.046 7 61 15.954 61 27V39"
+                stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
+          <rect x="10" y="36" width="62" height="49" rx="7"
+                stroke="currentColor" stroke-width="4"/>
+          <circle cx="41" cy="57" r="4" fill="currentColor"/>
+          <path d="M41 61V70" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+        </svg>
+      </button>
+
+      <form class="password-panel" id="passwordPanel">
+        <input id="password" type="password" placeholder="teu dia"
+               aria-label="teu dia" autocomplete="off" inputmode="numeric"
+               required>
+        <button type="submit">entrar</button>
+        <p class="error" id="error" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <article class="letter" id="letter">
+      <p>Criei em algum momento da minha vida a prática de escrever sobre tudo, pois nem sempre consigo falar o que sinto.</p>
+      <p>Já escrevi diversas cartas, músicas, desabafos… já escrevi bastante sobre ti.</p>
+      <p>Numa das músicas mais recentes que escrevi tem um verso que diz:</p>
+      <p><em>“Sonhei,<br>que tu voltavas como aquele outubro,<br>quando ainda era, e não, o primeiro de tudo,<br>[...]”</em></p>
+      <p>E aos poucos vou entendendo ela.</p>
+      <p>Acho que depois do primeiro término de algo que não temos, lá em dezembro, quando ainda era 2025, não somos os mesmos.</p>
+      <p>Temos rotinas corridas, vidas cada vez mais preocupadas e estamos crescendo, sozinhos.</p>
+      <p>A distância antes era o único problema que tínhamos, e hoje parece ser o menor deles.</p>
+      <p>Mal nos falamos, mal nos entendemos e às vezes não ME entendo. Não entendo a mim mesmo. Como agora.</p>
+      <p>Te escrevi há três meses a carta mais poética, confusa e trágica. Você não leu. E tudo bem assumir isso.</p>
+      <p>Hoje escrevo e não cometerei o mesmo erro que cometi na antiga quando te disse “Adeus” e voltamos dois meses depois. Hoje deixo o tempo decidir.</p>
+      <p>Adoraria te dizer adeus hoje e de fato não voltar. Adoraria fazer o que minha amiga fala “liberta a alma desse menino”, pois não só eu, mas ela também enxerga o quanto não estou sendo bom para ti neste momento.</p>
+      <p>Não posso hoje, e não sei quando poderei, me entregar e viver contigo.</p>
+      <p>Sei que me esperarias, mas não quero isso.</p>
+      <p><em>“[...]<br>eu espero que não me esperes<br>e comece a viver com outro alguém.”</em></p>
+      <p>Creio que escrevi este verso não no sentido de que quero que encontre alguém para que eu te supere, mas que encontres alguém para que sejas feliz. Que ele, ou ela, te faça feliz assim como eu deveria te fazer.</p>
+      <p>Ainda te amo, ainda te amarei por um tempo que não poderia prever.</p>
+      <p>Peço que me entendas e não diga “Não é isso que quero. A gente pode mudar.” Pois infelizmente acredito que eu não posso e não quero mudar.</p>
+      <p>Sinto muito de verdade.</p>
+      <p>Espero que quando lembres de mim venham as coisas boas que vivemos. Espero que lembres que minha cor favorita é azul, que olhávamos apartamentos como se tivéssemos dinheiro para comprar todos, que lembres da noite que li história para que dormir na chamada.</p>
+      <p>Lembrarei de ti quando tocar algo da Luísa Sonza, quando ver algo sobre Carros ou Rapunzel, ou até mesmo quando um estado inteiro for citado.</p>
+      <p>Eu pediria um tempo para pensar e me alinhar até nos acertamos, mas acho isso a coisa mais escrota no mundo. Seria como eu te prendesse por um problema meu.</p>
+      <p>Peço que não me esperes, ou melhor, que esperes que eu não vá voltar, pois é isso que espero.</p>
+      <p>Espero que eu não ocupe nem mais um segundo do teu tempo.</p>
+      <p>Sei que não me arrependerei de escrever e te enviar isto pois há mais de uma semana que penso no que vou escrever aqui.</p>
+      <p>Provavelmente pensarei mil e uma outras coisas que colocaria aqui nesta carta logo após finalizar ela, e a vida é isso.</p>
+      <p>Quem sabe um dia não escute, ou leia, todas as músicas que escrevi e ainda escreverei sobre tudo que vivemos e poderíamos viver.</p>
+      <p>Até, João.</p>
+      <p class="signature">Com amor, carinho e muito pesar, João.</p>
+      <p class="kiss">beiJoãos.</p>
+    </article>
+  </main>
+
+  <script>
+    const CORRECT_PASSWORD = "25102008";
+
+    const lockButton = document.getElementById("lockButton");
+    const passwordPanel = document.getElementById("passwordPanel");
+    const passwordInput = document.getElementById("password");
+    const error = document.getElementById("error");
+    const gate = document.getElementById("gate");
+    const letter = document.getElementById("letter");
+
+    lockButton.addEventListener("click", () => {
+      lockButton.style.display = "none";
+      passwordPanel.classList.add("visible");
+      passwordInput.focus();
+    });
+
+    passwordPanel.addEventListener("submit", (event) => {
+      event.preventDefault();
+
+      if (passwordInput.value === CORRECT_PASSWORD) {
+        gate.style.display = "none";
+        letter.classList.add("visible");
+        window.scrollTo(0, 0);
+      } else {
+        error.textContent = " ";
+        passwordInput.value = "";
+        passwordInput.focus();
+        passwordInput.setAttribute("aria-invalid", "true");
+      }
+    });
+
+    passwordInput.addEventListener("input", () => {
+      error.textContent = "";
+      passwordInput.removeAttribute("aria-invalid");
+    });
+  </script>
+</body>
+</html>
